@@ -1,34 +1,15 @@
 import React, { useState, useEffect, Fragment } from "react";
 
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Album from "components/Album/Album.js";
 import axios from "axios";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-
-import styles from "assets/jss/material-kit-react/views/profilePage.js";
-const useStyles = makeStyles(styles);
 
 const API_KEY = `${process.env.REACT_APP_API_KEY_FB}`;
 
-const dashboardRoutes = [];
-
-export default function Gallary(props) {
-  const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
-  const { ...rest } = props;
-  const imageClasses = classNames(
-    classes.imgRaised,
-    classes.imgRoundedCircle,
-    classes.imgFluid
-  );
+export default function AlbumGallary(props) {
 
   const [data, setData] = useState();
 
-  const navImageClasses = classNames(classes.imgFluid, classes.imgGallery);
 
   useEffect(() => {
     axios
@@ -43,10 +24,10 @@ export default function Gallary(props) {
 
   return data ? (
     <Fragment>
-      <Grid container spacing={24}>
+      <Grid container spacing={8}>
         {data.albums.data.map((album, index) => {
           return (
-            <Grid item xs={12} sm={6} lg={4}>
+            <Grid item xs={12} sm={6} lg={4} key={index}>
               <Album albums={album} />
             </Grid>
           );
@@ -63,6 +44,6 @@ export default function Gallary(props) {
       ))} */}
     </Fragment>
   ) : (
-    <div>Loading...</div>
+    <div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Loading...<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/></div>
   );
 }

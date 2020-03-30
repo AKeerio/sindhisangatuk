@@ -4,6 +4,8 @@ import Media from 'react-media';
 import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
+
+// core components
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -15,13 +17,13 @@ import Logo from "components/Logo/Logo.js";
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
 
 // Sections for this page
-import ProductSection from "./Sections/ProductSection.js";
+import AlbumGallary from 'components/AlbumGallary/AlbumGallary.js';
 
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-export default function LandingPage(props) {
+export default function AlbumsPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
   return (
@@ -34,7 +36,7 @@ export default function LandingPage(props) {
         fixed
         changeColorOnScroll={{
           height: 400,
-         /*color: "white"*/
+          color: "white"
         }}
         {...rest}
       />
@@ -81,7 +83,7 @@ export default function LandingPage(props) {
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
-          <ProductSection />
+          <AlbumGallary />
         </div>
       </div>
       <Footer />

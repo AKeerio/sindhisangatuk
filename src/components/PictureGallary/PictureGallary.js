@@ -1,11 +1,10 @@
-import React, { Fragment } from 'react';
-import Media from 'react-media';
+import React, { Fragment } from "react";
+import Media from "react-media";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
-import Danger from "components/Typography/Danger.js";
 // core components
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
@@ -18,7 +17,7 @@ import Logo from "components/Logo/Logo.js";
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
 
 // Sections for this page
-import Gallary from 'components/Gallary/Gallary.js';
+import Pictures from "./Pictures";
 
 const dashboardRoutes = [];
 
@@ -37,7 +36,7 @@ export default function ProfilePage(props) {
         fixed
         changeColorOnScroll={{
           height: 400,
-         /*color: "white"*/
+          color: "white"
         }}
         {...rest}
       />
@@ -48,19 +47,33 @@ export default function ProfilePage(props) {
               <Logo />
             </GridItem>
           </GridContainer>
-          
+
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={12}>
-              <Media queries={{
-                small: "(max-width: 599px)",
-                medium: "(min-width: 600px) and (max-width: 1199px)",
-                large: "(min-width: 1200px)"
-              }}>
+              <Media
+                queries={{
+                  small: "(max-width: 599px)",
+                  medium: "(min-width: 600px) and (max-width: 1199px)",
+                  large: "(min-width: 1200px)"
+                }}
+              >
                 {matches => (
                   <Fragment>
-                    {matches.large &&  <h1 className={classes.title}>Sindhi Sangat United Kingdom</h1>}
-                    {matches.medium && <h2 className={classes.title}>Sindhi Sangat United Kingdom</h2>}
-                    {matches.small &&  <h3 className={classes.title}>Sindhi Sangat United Kingdom</h3>}
+                    {matches.large && (
+                      <h1 className={classes.title}>
+                        Sindhi Sangat United Kingdom
+                      </h1>
+                    )}
+                    {matches.medium && (
+                      <h2 className={classes.title}>
+                        Sindhi Sangat United Kingdom
+                      </h2>
+                    )}
+                    {matches.small && (
+                      <h3 className={classes.title}>
+                        Sindhi Sangat United Kingdom
+                      </h3>
+                    )}
                   </Fragment>
                 )}
               </Media>
@@ -84,7 +97,8 @@ export default function ProfilePage(props) {
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
-          <Gallary />
+          {console.log(props)}
+          <Pictures albumId={props.match.params.id} />
         </div>
       </div>
       <Footer />
