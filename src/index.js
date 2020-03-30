@@ -11,9 +11,7 @@ import AlbumsPage from "views/AlbumsPage/AlbumsPage.js";
 import PictureGallary from "components/PictureGallary/PictureGallary";
 
 var hist = createBrowserHistory();
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-});
+
 ReactDOM.render(
   <Router history={hist}>
     <Switch>
