@@ -29,7 +29,7 @@ export default function Pictures(props) {
       .get(
         "https://graph.facebook.com/v6.0/" +
           album_id +
-          "?fields=photos.fields(source)&access_token=" +
+          "?fields=photos.fields(source, height, width)&access_token=" +
           API_KEY
       )
       .then(({ data }) => {
@@ -41,7 +41,7 @@ export default function Pictures(props) {
   return data ? (
     <div>
       {data.photos.data.map((picture, index) => {
-        photos = [...photos, { src: picture.source, width: 3, height: 2 }];
+        photos = [...photos, { src: picture.source, width: picture.width, height: picture.height }];
       })}
       {console.log(photos)}
       <Gallery photos={photos} onClick={openLightbox} />
