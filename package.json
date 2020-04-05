@@ -48,6 +48,7 @@
   },
   "optionalDependencies": {},
   "scripts": {
+    "deploy": "npm run build",
     "start": "react-scripts start",
     "build": "react-scripts build && gulp licenses",
     "test": "react-scripts test --env=jsdom",
