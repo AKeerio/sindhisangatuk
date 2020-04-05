@@ -5,6 +5,10 @@
   "description": "Sindhi Sangat United United Kingdom - a non-governmental, non-political, social and cultural organization for Sindhis living in the UK.",
   "private": true,
   "main": "dist/index.js",
+  "engines": {
+    "node": "12.16.1",
+    "npm": "6.13.4"
+  },
   "dependencies": {
     "@material-ui/core": "4.3.2",
     "@material-ui/icons": "4.2.1",
