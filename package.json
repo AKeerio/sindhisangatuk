@@ -1,5 +1,4 @@
 {
-  "homepage": "https://sindhisangatuk.com/",
   "name": "sindhisangatuk",
   "version": "0.0.1",
   "description": "Sindhi Sangat United United Kingdom - a non-governmental, non-political, social and cultural organization for Sindhis living in the UK.",
@@ -48,9 +47,8 @@
   },
   "optionalDependencies": {},
   "scripts": {
-    "deploy": "npm run build",
-    "start": "node index.js",
-    "build": "react-scripts build && gulp licenses",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint:check": "eslint . --ext=js,jsx;  exit 0",
