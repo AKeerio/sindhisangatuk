@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import Media from 'react-media';
+import React, { Fragment } from "react";
+import Media from "react-media";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -16,6 +16,7 @@ import styles from "assets/jss/material-kit-react/views/landingPage.js";
 
 // Sections for this page
 import ProductSection from "./Sections/ProductSection.js";
+import BottomNav from "../../components/BottomNav/BottomNav.js";
 
 const dashboardRoutes = [];
 
@@ -26,18 +27,47 @@ export default function LandingPage(props) {
   const { ...rest } = props;
   return (
     <div>
-      <Header
-        color="warning"
-        routes={dashboardRoutes}
-        brand="Sindhi Sangat UK"
-        rightLinks={<HeaderLinks />}
-        fixed
-        changeColorOnScroll={{
-          height: 400,
-         /*color: "white"*/
+      <Media
+        queries={{
+          small: "(max-width: 959px)",
+          medium: "(min-width: 960px) and (max-width: 1199px)",
+          large: "(min-width: 1200px)",
         }}
-        {...rest}
-      />
+      >
+        {(matches) => (
+          <Fragment>
+            {matches.large && (
+              <Header
+                color="warning"
+                routes={dashboardRoutes}
+                brand="Sindhi Sangat UK"
+                rightLinks={<HeaderLinks />}
+                fixed
+                changeColorOnScroll={{
+                  height: 400,
+                  color: "white",
+                }}
+                {...rest}
+              />
+            )}
+            {matches.medium && (
+              <Header
+                color="warning"
+                routes={dashboardRoutes}
+                brand="Sindhi Sangat UK"
+                rightLinks={<HeaderLinks />}
+                fixed
+                changeColorOnScroll={{
+                  height: 400,
+                  color: "white",
+                }}
+                {...rest}
+              />
+            )}
+            {matches.small && <BottomNav />}
+          </Fragment>
+        )}
+      </Media>
       <Parallax filter image={require("assets/img/cover3.png")}>
         <div className={classes.container}>
           <GridContainer justify="center">
@@ -45,19 +75,33 @@ export default function LandingPage(props) {
               <Logo />
             </GridItem>
           </GridContainer>
-          
+
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={12}>
-              <Media queries={{
-                small: "(max-width: 599px)",
-                medium: "(min-width: 600px) and (max-width: 1199px)",
-                large: "(min-width: 1200px)"
-              }}>
-                {matches => (
+              <Media
+                queries={{
+                  small: "(max-width: 599px)",
+                  medium: "(min-width: 600px) and (max-width: 1199px)",
+                  large: "(min-width: 1200px)",
+                }}
+              >
+                {(matches) => (
                   <Fragment>
-                    {matches.large &&  <h1 className={classes.title}>Sindhi Sangat United Kingdom</h1>}
-                    {matches.medium && <h2 className={classes.title}>Sindhi Sangat United Kingdom</h2>}
-                    {matches.small &&  <h3 className={classes.title}>Sindhi Sangat United Kingdom</h3>}
+                    {matches.large && (
+                      <h1 className={classes.title}>
+                        Sindhi Sangat United Kingdom
+                      </h1>
+                    )}
+                    {matches.medium && (
+                      <h2 className={classes.title}>
+                        Sindhi Sangat United Kingdom
+                      </h2>
+                    )}
+                    {matches.small && (
+                      <h3 className={classes.title}>
+                        Sindhi Sangat United Kingdom
+                      </h3>
+                    )}
                   </Fragment>
                 )}
               </Media>

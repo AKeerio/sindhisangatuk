@@ -9,16 +9,17 @@ import "assets/scss/material-kit-react.scss?v=1.8.0";
 import LandingPage from "views/LandingPage/LandingPage.js";
 import AlbumsPage from "views/AlbumsPage/AlbumsPage.js";
 import PictureGallary from "components/PictureGallary/PictureGallary";
+import VideoGallary from "components/VideoGallary/VideoGallary";
 
 var hist = createBrowserHistory();
 
 ReactDOM.render(
   <Router history={hist}>
     <Switch>
-      <Route path="/landing-page" component={LandingPage} />
-      <Route path="/albums-page" component={AlbumsPage} />
-      <Route path="/login-page" component={LandingPage} />
-      <Route path="/gallary-page/:id" component={PictureGallary} />
+      <Route path="/home" component={LandingPage} />
+      <Route path="/albums" component={AlbumsPage} />
+      <Route path="/videos" component={VideoGallary} />
+      <Route path="/photos/:id" component={PictureGallary} />
       <Route path="/" component={LandingPage} />
     </Switch>
   </Router>,

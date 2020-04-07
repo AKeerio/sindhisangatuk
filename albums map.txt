@@ -1,0 +1,10 @@
+
+      {/* {data.albums.data.map((album, index) => (
+        <div key={`${album.id}${index}`}>
+          {album.name.map((data, index) => (
+            <div key={`${data}${index}`}>
+              <img className={navImageClasses} src={data.source} />
+            </div>
+          ))}
+        </div>
+      ))} */}

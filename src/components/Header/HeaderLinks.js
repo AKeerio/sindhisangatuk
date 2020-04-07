@@ -1,7 +1,5 @@
 /*eslint-disable*/
 import React from "react";
-import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "@material-ui/core/IconButton";
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
 
@@ -9,13 +7,8 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import Tooltip from "@material-ui/core/Tooltip";
-
-// @material-ui/icons
-import { Apps, CloudDownload } from "@material-ui/icons";
 
 // core components
-import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
@@ -27,37 +20,39 @@ export default function HeaderLinks(props) {
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
-        <CustomDropdown
-          noLiPadding
-          buttonText="Events"
-          buttonProps={{
-            className: classes.navLink,
-            color: "transparent"
-          }}
-          dropdownList={[
-            <Link to="/albums-page" className={classes.dropdownLink}>
-              2020
-            </Link>,
-            <Link to="/albums-page" className={classes.dropdownLink}>
-              2019
-            </Link>
-          ]}
-        />
-      </ListItem>
-      <ListItem className={classes.listItem}>
         <Button
-          href="/albums-page"
+          href="/"
           color="transparent"
           className={classes.navLink}
-        >Photos
+        >
+          Home
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
-          href="/profile-page"
+          href="/albums"
           color="transparent"
           className={classes.navLink}
-        >Contact
+        >
+          Photos
+        </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button
+          href="/videos"
+          color="transparent"
+          className={classes.navLink}
+        >
+          Videos
+        </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button
+          href="/home"
+          color="transparent"
+          className={classes.navLink}
+        >
+          Contact Us
         </Button>
       </ListItem>
     </List>

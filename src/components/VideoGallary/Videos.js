@@ -2,36 +2,35 @@ import React, { useState, useEffect, useCallback } from "react";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import axios from "axios";
-import { Grid } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
+import { Grid } from '@material-ui/core';
 const API_KEY = `${process.env.REACT_APP_API_KEY_FB}`;
 
-export default function Pictures(props) {
-  var photos = [];
+export default function Videos(props) {
+  var videos = [];
 
-  const [currentImage, setCurrentImage] = useState(0);
+  const [currentVideo, setCurrentVideo] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
-
-  const openLightbox = useCallback((event, { photo, index }) => {
-    setCurrentImage(index);
+  
+  const openLightbox = useCallback((event, { video, index }) => {
+    setCurrentVideo(index);
     setViewerIsOpen(true);
   }, []);
 
   const closeLightbox = () => {
-    setCurrentImage(0);
+    setCurrentVideo(0);
     setViewerIsOpen(false);
   };
 
   const [data, setData] = useState();
   const album_id = props.albumId;
-
+  
   useEffect(() => {
     axios
       .get(
         "https://graph.facebook.com/v6.0/" +
-          album_id +
-          "?fields=photos.limit(9999).fields(source, height, width)&access_token=" +
+          "708838385823055" +
+          "?fields=videos.limit(9999){source,picture}&access_token=" +
           API_KEY
       )
       .then(({ data }) => {
@@ -41,20 +40,17 @@ export default function Pictures(props) {
 
   return data ? (
     <div>
-      {data.photos.data.map((picture, index) => {
-        photos = [
-          ...photos,
-          { src: picture.source, width: picture.width, height: picture.height },
-        ];
+      {console.log(JSON.stringify(videos))}
+      {data.videos.data.map((video, index) => {
+        videos = [...videos, { src: video.picture, width: 4, height: 3 }];
       })}
-      {console.log(photos)}
-      <Gallery photos={photos} onClick={openLightbox} />
+      <Gallery photos={videos} onClick={openLightbox} />
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
             <Carousel
-              currentIndex={currentImage}
-              views={photos.map((x) => ({
+              currentIndex={currentVideo}
+              views={videos.map((x) => ({
                 ...x,
                 srcset: x.srcSet,
                 caption: x.title,
@@ -76,7 +72,6 @@ export default function Pictures(props) {
     //     })}
     //   </Grid>
     // </Fragment>
-
     <div>
       <Grid
         container
@@ -84,11 +79,14 @@ export default function Pictures(props) {
         direction="column"
         alignItems="center"
         justify="center"
-        style={{ minHeight: "50vh" }}
+        style={{ minHeight: '50vh' }}
       >
+
         <Grid item xs={3}>
-          <CircularProgress />
-        </Grid>
+        
+        <CircularProgress />
+        </Grid>   
+
       </Grid>
     </div>
   );

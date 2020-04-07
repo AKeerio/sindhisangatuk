@@ -20,11 +20,11 @@ export default function Footer(props) {
   const { whiteFont } = props;
   const footerClasses = classNames({
     [classes.footer]: true,
-    [classes.footerWhiteFont]: whiteFont
+    [classes.footerWhiteFont]: whiteFont,
   });
   const aClasses = classNames({
     [classes.a]: true,
-    [classes.footerWhiteFont]: whiteFont
+    [classes.footerWhiteFont]: whiteFont,
   });
   return (
     <footer className={footerClasses}>
@@ -32,36 +32,29 @@ export default function Footer(props) {
         <div className={classes.left}>
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
-              <a
-                href="\"
-                className={classes.block}
-                target="_blank"
-              >
-                Events
+              <a href="\albums" className={classes.block} >
+                Home
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a
-                href="\"
-                className={classes.block}
-                target="_blank"
-              >
+              <a href="\albums" className={classes.block} >
+                Photos
+              </a>
+            </ListItem>
+            <ListItem className={classes.inlineBlock}>
+              <a href="\" className={classes.block} >
                 About us
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a
-                href="\"
-                className={classes.block}
-                target="_blank"
-              >
+              <a href="\" className={classes.block} >
                 Contact Us
               </a>
             </ListItem>
           </List>
         </div>
         <div className={classes.right}>
-          &copy; {1900 + new Date().getYear()} , Sindhi Sangat United Kingdom 
+          &copy; {1900 + new Date().getYear()} , Sindhi Sangat United Kingdom
         </div>
       </div>
     </footer>
@@ -69,5 +62,5 @@ export default function Footer(props) {
 }
 
 Footer.propTypes = {
-  whiteFont: PropTypes.bool
+  whiteFont: PropTypes.bool,
 };
