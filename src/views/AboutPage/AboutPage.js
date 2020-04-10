@@ -4,8 +4,6 @@ import Media from "react-media";
 import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-
-// core components
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -15,15 +13,16 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
 import Logo from "components/Logo/Logo.js";
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
+
 // Sections for this page
-import AlbumPageBody from "./AlbumPageBody.js";
+import ProductSection from "./AboutPageBody.js";
 import BottomNav from "../../components/BottomNav/BottomNav.js";
 
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-export default function AlbumsPage(props) {
+export default function AboutPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
   return (
@@ -32,10 +31,10 @@ export default function AlbumsPage(props) {
         queries={{
           small: "(max-width: 959px)",
           medium: "(min-width: 960px) and (max-width: 1199px)",
-          large: "(min-width: 1200px)"
+          large: "(min-width: 1200px)",
         }}
       >
-        {matches => (
+        {(matches) => (
           <Fragment>
             {matches.large && (
               <Header
@@ -46,7 +45,7 @@ export default function AlbumsPage(props) {
                 fixed
                 changeColorOnScroll={{
                   height: 400,
-                  color: "white"
+                  color: "white",
                 }}
                 {...rest}
               />
@@ -60,7 +59,7 @@ export default function AlbumsPage(props) {
                 fixed
                 changeColorOnScroll={{
                   height: 400,
-                  color: "white"
+                  color: "white",
                 }}
                 {...rest}
               />
@@ -83,10 +82,10 @@ export default function AlbumsPage(props) {
                 queries={{
                   small: "(max-width: 599px)",
                   medium: "(min-width: 600px) and (max-width: 1199px)",
-                  large: "(min-width: 1200px)"
+                  large: "(min-width: 1200px)",
                 }}
               >
-                {matches => (
+                {(matches) => (
                   <Fragment>
                     {matches.large && (
                       <h1 className={classes.title}>
@@ -126,7 +125,7 @@ export default function AlbumsPage(props) {
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
-          <AlbumPageBody />
+          <ProductSection />
         </div>
       </div>
       <Footer />

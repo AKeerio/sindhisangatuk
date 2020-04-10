@@ -9,8 +9,7 @@ import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/profilePage.js";
 import { Grid } from "@material-ui/core";
-import CircularProgress from '@material-ui/core/CircularProgress';
-
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useStyles = makeStyles(styles);
 const API_KEY = `${process.env.REACT_APP_API_KEY_FB}`;
@@ -32,6 +31,7 @@ export default function AlbumGallary(props) {
 
   return data ? (
     <div>
+      <Grid container spacing={1}>
         {data.albums.data.map((album, index) => {
           return (
             <Grid item xs={12} sm={6} lg={4} key={index}>
@@ -60,6 +60,7 @@ export default function AlbumGallary(props) {
             </Grid>
           );
         })}
+      </Grid>
     </div>
   ) : (
     <div>

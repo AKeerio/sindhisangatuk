@@ -23,7 +23,6 @@ export default function Videos(props) {
   };
 
   const [data, setData] = useState();
-  const album_id = props.albumId;
   
   useEffect(() => {
     axios

@@ -18,18 +18,18 @@ import styles from "assets/jss/material-kit-react/views/landingPage.js";
 import BottomNav from "../../components/BottomNav/BottomNav.js";
 
 // Sections for this page
-import Videos from "./Videos";
+import PicturesPageBody from "./PicturesPageBody";
 
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-export default function VideosPage(props) {
+export default function ProfilePage(props) {
   const classes = useStyles();
   const { ...rest } = props;
   return (
     <div>
-            <Media
+      <Media
         queries={{
           small: "(max-width: 959px)",
           medium: "(min-width: 960px) and (max-width: 1199px)",
@@ -84,10 +84,10 @@ export default function VideosPage(props) {
                 queries={{
                   small: "(max-width: 599px)",
                   medium: "(min-width: 600px) and (max-width: 1199px)",
-                  large: "(min-width: 1200px)"
+                  large: "(min-width: 1200px)",
                 }}
               >
-                {matches => (
+                {(matches) => (
                   <Fragment>
                     {matches.large && (
                       <h1 className={classes.title}>
@@ -128,7 +128,7 @@ export default function VideosPage(props) {
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
           {console.log(props)}
-          <Videos albumId={props.match.params.id} />
+          <PicturesPageBody albumId={props.match.params.id} />
         </div>
       </div>
       <Footer />
